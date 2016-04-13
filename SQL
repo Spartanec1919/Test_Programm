@@ -1,0 +1,14 @@
+Select CustomerId
+
+from Purchaise
+
+where ProductName like '%Молоко%' and  CustomerId in
+(
+
+Select distinct CustomerId as userid
+
+from Purchaise
+
+where (ProductName like '%Сметана%' and PurchaiseDatetime not between DateN and DateK)
+ or (ProductName not like '%Сметана%')
+)
